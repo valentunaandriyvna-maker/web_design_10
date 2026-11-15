@@ -1,32 +1,131 @@
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: pink;
-  background: 50% 50% no-repeat
-    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
-}
-a {
-  display: inline-block;
-  margin: 10px;
+/* Загальні налаштування сторінки */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: pink;
-  font-family: "Comic Sans MS", sans-serif;
-  line-height: 1.2;
-  text-align: center;
-  margin: 0;
-  min-height: 100%; /* Робить висоту сторінки мінімум на весь екран */
-  padding: 40px 20px; /* Виправив відступи, щоб текст не прилипав до країв */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Красивий світло-салатовий градієнтний фон */
+    background: linear-gradient(135deg, #f4fce3 0%, #e9fac8 50%, #d8f5a2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1b4332;
+    padding: 20px;
 }
+
+/* Головний контейнер, що ділить екран на контент і бокову панель */
+.main-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 35px 40px;
+    max-width: 1050px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(76, 130, 32, 0.15);
+    gap: 35px;
+}
+
+/* Ліва частина: заголовок і кнопки (40% ширини) */
+.content-section {
+    flex: 0 0 calc(40% - 17.5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
 h1 {
-	text-transform: uppercase;
-	font-size: 60px;
-	color: skyblue;
+    color: #2b591e;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
-h2 {
-	text-transform: uppercase;
-	font-size: 40px;
-	color: pink;
+
+p {
+    color: #467a2e;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(90deg, #5c940d, #74b816);
+    text-decoration: none;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(92, 148, 13, 0.25);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #4b7a0a, #5c940d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(92, 148, 13, 0.35);
+}
+
+/* Права частина (збоку): картка з ПК та написом "8 клас" (60% ширини) */
+.side-banner {
+    flex: 0 0 calc(60% - 17.5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(76, 130, 32, 0.12);
+    border: 1px solid #d8f5a2;
+}
+
+.pc-icon {
+    width: 100%;
+    max-height: 360px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.class-badge {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    background: #66a80f;
+    padding: 8px 28px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(102, 168, 15, 0.3);
+}
+
+/* Адаптація для мобільних телефонів */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column-reverse;
+        padding: 30px 20px;
+    }
+    .content-section,
+    .side-banner {
+        flex: none;
+        width: 100%;
+    }
 }
